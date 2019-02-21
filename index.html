@@ -32,20 +32,16 @@
   }
   fetch('list').then(function(response){
     response.text().then(function(text){
-      //<li><a href="#!html" onclick="fetchPage('html')">HTML</a></li>
-      console.log(text);
       var items = text.split(',');
-      var i=0;
-      var tags='';
+      var i = 0;
+      var tags = '';
       while(i<items.length){
         var item = items[i];
-        item = itme.trim();
-        var tag = '<li><a href="#!'+item+'" onclick="fetchPage(\''+item+'\')">'+item+'</a></li>'
-        console.log(item);
+        item = item.trim();
+        var tag = '<li><a href="#!'+item+'" onclick="fetchPage(\''+item+'\')">'+item+'</a></li>';
         tags = tags + tag;
-        i+=1;
+        i = i + 1;
       }
-      console.log(items);
       document.querySelector('#nav').innerHTML = tags;
     })
   });
