@@ -12,10 +12,16 @@
       })
       */
       //Asynchronous
-      function callbackme(){
+      /*function callbackme(){
         console.log('response end');
       }
-      fetch('html').then(callbackme);
+      //SAME!!!
+      callbackme == function(){
+        console.log('response end');
+      } */
+      fetch('html').then(function(response){
+        console.log('response end');
+      });
       console.log('1');
       console.log('2');
     ">
