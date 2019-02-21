@@ -32,7 +32,20 @@
   }
   fetch('list').then(function(response){
     response.text().then(function(text){
-      document.querySelector('#nav').innerHTML = text;
+      //<li><a href="#!html" onclick="fetchPage('html')">HTML</a></li>
+      console.log(text);
+      var items = text.split(',');
+      var i=0;
+      var tags='';
+      while(i<items.length){
+        var item = items[i];
+        var tag = '<li><a href="#!'+item+'" onclick="fetchPage(\''+item+'\')">'+item+'</a></li>'
+        console.log(item);
+        tags = tags + tag;
+        i+=1;
+      }
+      console.log(items);
+      document.querySelector('#nav').innerHTML = tags;
     })
   });
   </script>
